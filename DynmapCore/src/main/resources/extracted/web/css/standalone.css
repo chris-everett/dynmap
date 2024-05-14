@@ -71,7 +71,6 @@ body {
 
   .form-wrapper {
     align-content: center;
-    width: 100%;
     max-width: var(--form-width);
     margin-inline: auto;
     padding: 2rem;
