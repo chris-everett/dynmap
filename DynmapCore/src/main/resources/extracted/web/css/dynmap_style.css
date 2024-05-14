@@ -1047,10 +1047,10 @@ td.register {
 }
 
 div.statusmessage {
-	color: #FF0000;
-    font-weight: bold;
-    font-size: 24px;
-	
+  margin-block-end: 1rem;
+	color: var(--form-error);
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .logincontainer {

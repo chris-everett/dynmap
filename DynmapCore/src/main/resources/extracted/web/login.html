@@ -7,6 +7,10 @@
 	<title> Minecraft Dynamic Map - Login/Register </title>
 	<link rel="icon" href="images/dynmap.ico" type="image/ico" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="css/leaflet.css?_=${version}-${buildnumber}" />
 	<link rel="stylesheet" type="text/css" href="css/standalone.css?_=${version}-${buildnumber}" media="screen" />
 	<link rel="stylesheet" type="text/css" href="css/dynmap_style.css?_=${version}-${buildnumber}" media="screen" />
@@ -54,50 +58,52 @@
 	
 </head>
 <body>
-<div class='dynmaplogin'>
-<h2>Minecraft Dynamic Map - Login/Register</h2>
-<div id="status_message" class="statusmessage"></div>
-<table class='loginregister'>
-<tr><th>Existing User:</th></tr>
-<tr><td class='login'>
-<FORM METHOD=POST name=login ACTION="up/login">
-<p>
-Enter user ID and password:
-<BR>
-<BR>
-<table>
-<tr><td>User ID</td><td><input type="text" size="20" name="j_username"></td></tr>
-<tr><td>Password</td><td><input type="password" size="20" name="j_password"></td></tr>
-</table>
-<BR>
-<input type="submit" name="login" value="Login">
-</p>
-</form>
-<p>
-</td></tr>
-<tr><th>Register New User:</th></tr>
-<tr>
-<td class='register'>
-<FORM METHOD=POST name=register ACTION="up/register">
-<p>
-Run '/dynmap webregister' and enter returned registration code, along with userid and password:
-<BR>
-<BR>
-<table>
-<tr><td>User ID</td><td><input type="text" size="20" name="j_username"></td></tr>
-<tr><td>Password</td><td><input type="password" size="20" name="j_password"></td></tr>
-<tr><td>Verify Password</td><td><input type="password" size="20" name="j_verify_password"></td></tr>
-<tr><td>Registration Code</td><td><input type="text" size="20" name="j_passcode"></td></tr>
-</table>
-<BR>
-<BR>
-<input type="submit" name="register" value="Register">
-</p>
-</form>
-</td>
-</tr>
-</table>
-</div>
+  <div class='dynmaplogin'>
+    <h2>Dynamic Map - Login/Register</h2>
+    <div id="status_message" class="statusmessage"></div>
 
+    <div class="form-wrapper">
+      <form method=POST name=login action="up/login">
+        <p><strong>Existing user:</strong></p>
+        <div class="form-item">   
+          <label for="username">User ID</label>
+          <input type="text" size="20" name="j_username" id="username">
+        </div>
+        <div class="form-item">   
+          <label for="password">Password</label>
+          <input type="password" size="20" name="j_password" id="password">
+        </div>
+
+        <input type="submit" name="login" value="Login" class="btn btn-accent">
+      </form>
+    </div>
+
+    <div class="form-wrapper">
+      <form method=POST name=register action="up/register">
+        <p><strong>Register new user:</strong></p>
+        <p>
+          Run '/dynmap webregister' and enter returned registration code, along with userid and password:
+        </p>
+        <div class="form-item">   
+          <label for="username">User ID</label>
+          <input type="text" size="20" name="j_username" id="username">
+        </div>
+        <div class="form-item">   
+          <label for="password">Password</label>
+          <input type="password" size="20" name="j_password" id="password">
+        </div>
+        <div class="form-item">   
+          <label for="password_verify">Verify password</label>
+          <input type="password" size="20" name="j_verify_password" id="password_verify">
+        </div>
+        <div class="form-item">   
+          <label for="passcode">Registration code</label>
+          <input type="text" size="20" name="j_passcode" id="passcode">
+        </div>
+
+        <input type="submit" name="register" value="Register" class="btn btn-accent">
+      </form>
+    </div>
+  </div>
 </body>
 </html>

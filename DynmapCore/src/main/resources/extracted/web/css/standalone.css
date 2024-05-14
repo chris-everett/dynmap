@@ -1,5 +1,23 @@
 /* Standalone Document */
 
+:root {
+  --form-accent: rgba(108, 184, 70, 1.00);
+  --form-error: rgba(232, 112, 112, 1.00);
+  --form-width: 300px;
+  --form-bg: rgba(52, 56, 65, 1.00);
+  --form-radius: 5px;
+  --form-btn-default: rgba(52, 56, 65, 1.00);
+  --form-input-padding: 4px;
+  --form-input-border-width: 1px;
+  --form-input-border-color: rgba(73, 77, 88, 1);
+  --form-input-bg: rgba(64, 68, 79, 1.00);
+  --form-input-focus-bg: rgba(49, 52, 61, 1);
+  --form-input-border-blur: 0;
+  --form-input-border-width-focus: 0;
+  --form-input-border-focus-color: rgba(108, 184, 70, 1.00);
+  --form-input-font-size: 12px;
+}
+
 html {
     width: 100%;
     height: 100%
@@ -38,4 +56,107 @@ body {
 
 .dynmap .hitbar {
     right: 200px; /* width of sidebar */
+}
+
+/* Custom tweaks */
+.dynmaplogin {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .form-wrapper {
+    align-content: center;
+    width: 100%;
+    max-width: var(--form-width);
+    margin-inline: auto;
+    padding: 2rem;
+    background-color: var(--form-bg);
+    border-radius: var(--form-radius);
+    text-align: left;
+    & ~ & {
+      margin-block-start: 2rem;
+    }
+  }
+  form {
+    
+    p {
+      margin-block-start: 0;
+      font-weight: normal;
+    }
+    .form-item {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s linear !important;
+      & ~ & {
+        margin-block-start: 1rem;
+      }
+      :is([type="text"], [type="password"]) {
+        width: auto;
+        padding: var(--form-input-padding) calc(var(--form-input-padding) * 3);
+        padding-block: clamp(1px, var(--form-input-padding)* 2.5, 15px);
+        padding-inline: clamp(5px, var(--form-input-padding)* 4, 20px);
+        box-shadow: 0 0 0 var(--form-input-border-width) var(--form-input-border-color);
+        background-color: var(--form-input-bg);
+        border-radius: var(--form-radius);
+        border: unset;
+        transition: filter 0.3s linear, box-shadow 0.35s ease-in-out, background-color 0.35s ease-in-out;
+        color: white;
+        &:is(:focus, :focus-within, :focus-visible) {
+          outline: unset;
+          background-color: var(--form-input-focus-bg);
+          box-shadow: 0 0 var(--form-input-border-blur) 1px var(--form-input-border-focus-color);
+        }
+      }
+    }
+
+    input[type="submit"] {
+      margin-block-start: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-block-end: 2px;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0;
+      color: var(--form-btn-default);
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: none;
+      white-space: nowrap;
+      user-select: none;
+      padding: clamp(5px, var(--form-input-padding)* 2, 10px) clamp(10px, var(--form-input-padding)* 6, 50px);
+      font-size: clamp(12px, var(--form-input-font-size) - 1px, 20px);
+      transition: background 0.1s linear, box-shadow 0.15s linear, color 0.1s linear;
+      flex-shrink: 0;
+      text-decoration: none;
+      border-radius: clamp(0px, var(--form-radius) - 2px, 30px);
+      background-color: var(--cform-btn-default);
+      box-sizing: border-box;
+      min-width: 90px;
+      -webkit-tap-highlight-color: transparent;
+      &:focus-visible {
+        outline: clamp(2px, var(--form-input-border-width), 5px) solid var(--form-input-border-focus-color);
+        outline-offset: 2px;
+      }
+      &.btn-accent {
+        background-color: var(--form-accent);
+        color: var(--cform-accent-color-btn);
+        &:hover {
+          background: color-mix(in srgb, var(--form-accent) 90%, #fff)}
+      }
+    }
+  }
 }
